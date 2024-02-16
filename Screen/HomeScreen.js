@@ -17,33 +17,40 @@ import {
   Platform,
 } from 'react-native';
 import Loader from './Components/Loader';
-const LoginScreen = ({navigation}) => {
+import { Header } from './Components/Header';
+import { Icon } from './Components/Icon';
+
+const HomeScreen = ({navigation}) => {
   const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
   const [token, setToken] = useState('');
 
-  const pressLogin = () => {
-    navigation.replace('Home');
-  }
-
   return (
-    <View style={styles.mainBody}>
-      <Loader loading={loading} />
-      <TouchableOpacity
-        style={styles.buttonStyle}
-        activeOpacity={0.5}
-        onPress={pressLogin}
-        >
-        <Image
-          source={require('./Images/next-icon.png')}
-          style={{width: 20, height: 20, marginLeft: 16, marginRight: 8}}
-        />
-        <Text style={styles.buttonTextStyle}>LOGIN</Text>
-      </TouchableOpacity>
-    </View>
+    <>
+      <Header
+        title={''}
+        buttonLeft={
+          <Icon
+            icon={require('./Images/corner-down-left.png')}
+            onPress={() => {
+              navigation.replace('Login')
+            }}
+          />
+        }
+      />
+      <View style={styles.mainBody}>
+        <Loader loading={loading} />
+        <TouchableOpacity
+          style={styles.buttonStyle}
+          activeOpacity={0.5}
+          >
+          <Text style={styles.buttonTextStyle}>HOME</Text>
+        </TouchableOpacity>
+      </View>
+    </>
   );
 };
-export default LoginScreen;
+export default HomeScreen;
 
 const styles = StyleSheet.create({
   mainBody: {

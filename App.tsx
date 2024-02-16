@@ -27,6 +27,7 @@ import {
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import LoginScreen from './Screen/LoginScreen';
+import HomeScreen from './Screen/HomeScreen';
 import SplashScreen from './Screen/SplashScreen';
 
 const Stack = createStackNavigator();
@@ -42,6 +43,7 @@ function App(): JSX.Element {
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
